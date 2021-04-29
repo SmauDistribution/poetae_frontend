@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
         <title>Poetae</title>
         <meta
           name="description"
-          content="Un sito web sviluppato per aiutare a conoscere i poeti"
+          content="Un sito web sviluppato per conoscere meglio i poeti italiani"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
