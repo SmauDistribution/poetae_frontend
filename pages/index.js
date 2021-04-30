@@ -1,7 +1,4 @@
-import Head from "next/head";
 import Navbar from "../components/Navbar";
-
-//TODO: Devi migliorare timeline icon perchè non è coerente alle altre due icone
 
 export default function Home() {
   return (

@@ -1,31 +1,62 @@
 import InfoIcon from "./Info";
 import Logo from "./Logo";
 import RelationsIcon from "./relations";
+import SearchIcon from "./Search";
 import TimelineIcon from "./Timeline";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 function Navbar() {
+  const router = useRouter();
+
   return (
-    <nav>
-      <div>
-        <Logo />
+    <nav
+      className={
+        "absolute w-full p-3 " +
+        (router.pathname !== "/"
+          ? " backdrop-filter backdrop-blur-lg border-b-2 border-gray-400 border-opacity-10"
+          : " ")
+      }
+    >
+      <div className="flex flex-row justify-between">
+        <div className="ml-12">
+          <Link href="/">
+            <a>
+              <Logo />
+            </a>
+          </Link>
+        </div>
+        <ul className="flex flex-row gap-5 mr-4 items-center">
+          <li>
+            <Link href="/search">
+              <a>
+                <SearchIcon />
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/relations">
+              <a>
+                <RelationsIcon />
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/timeline">
+              <a>
+                <TimelineIcon />
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              <a>
+                <InfoIcon />
+              </a>
+            </Link>
+          </li>
+        </ul>
       </div>
-      <ul>
-        <li>
-          <a href="/relations">
-            <RelationsIcon />
-          </a>
-        </li>
-        <li>
-          <a href="/timeline">
-            <TimelineIcon />
-          </a>
-        </li>
-        <li>
-          <a href="/about">
-            <InfoIcon />
-          </a>
-        </li>
-      </ul>
     </nav>
   );
 }
