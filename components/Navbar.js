@@ -30,7 +30,7 @@ function Navbar() {
           <li>
             <Link href="/search">
               <a>
-                <SearchIcon />
+                <SearchIcon isStatic={false} />
               </a>
             </Link>
           </li>

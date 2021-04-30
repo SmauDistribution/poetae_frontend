@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.under-nav {
+  @apply py-20;
+}
+
 .svg-icon-fill {
   @apply fill-current transition-colors text-white hover:text-red-400;
 }

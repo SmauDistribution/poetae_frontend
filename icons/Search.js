@@ -1,11 +1,13 @@
-const SearchIcon = () => {
+const SearchIcon = ({ isStatic }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="28px"
       height="28px"
       viewBox="0 0 512 512"
-      className="svg-icon-fill"
+      className={
+        isStatic === false ? "svg-icon-fill" : "fill-current text-white"
+      }
     >
       <path
         id="Search"
