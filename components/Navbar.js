@@ -1,8 +1,8 @@
-import InfoIcon from "./Info";
-import Logo from "./Logo";
-import RelationsIcon from "./relations";
-import SearchIcon from "./Search";
-import TimelineIcon from "./Timeline";
+import InfoIcon from "../icons/Info";
+import Logo from "../icons/Logo";
+import RelationsIcon from "../icons/Relations";
+import SearchIcon from "../icons/Search";
+import TimelineIcon from "../icons/Timeline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
