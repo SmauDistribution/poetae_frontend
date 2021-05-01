@@ -1,11 +1,24 @@
+import { useEffect, useState } from "react";
+import Profile from "../components/Profile";
 import SearchIcon from "../icons/Search";
 import Title from "../icons/Title";
+import { GetProfiles } from "./api/profiles";
 
 export default function Home() {
+  const [profiles, setProfiles] = useState([]);
+
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("ok");
   };
+
+  useEffect(() => {
+    GetProfiles().then((res) => setProfiles(res));
+  }, []);
+
+  let Profiles = Object.values(profiles).map((x) => {
+    return <Profile path={x.Immagine} />;
+  });
 
   return (
     <div
@@ -25,10 +38,14 @@ export default function Home() {
             type="search"
             placeholder="Cerca un poeta"
           />
-          <button className="bg-red-600 p-2 rounded-full text-center outline-none transition-colors hover:bg-red-700">
+          <button className="bg-red-600 p-2 rounded-full text-center outline-none transition-colors hover:bg-red-700 focus:outline-none">
             <SearchIcon isStatic={true} />
           </button>
         </form>
+      </div>
+
+      <div className="absolute bottom-0 p-8 w-full flex flex-row gap-8 overflow-hidden overflow-x-scroll elegant-scrollbar">
+        {Profiles}
       </div>
     </div>
   );

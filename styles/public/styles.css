@@ -32282,6 +32282,19 @@ video {
   transition-duration: 150ms;
 }
 
+.elegant-scrollbar::-webkit-scrollbar {
+  height: 10px;
+}
+
+.elegant-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.elegant-scrollbar::-webkit-scrollbar-thumb {
+  background-color: gray;
+  opacity: 0.5;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
