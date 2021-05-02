@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <nav
       className={
-        "absolute w-full p-3 " +
+        "fixed w-full p-3 " +
         (router.pathname !== "/"
           ? " backdrop-filter backdrop-blur-lg border-b-2 border-gray-400 border-opacity-10"
           : " ")
