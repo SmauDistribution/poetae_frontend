@@ -17,3 +17,14 @@ export async function GetProfile(id) {
   let data = await response.json();
   return data;
 }
+
+export async function Search(content) {
+  let url = BACKEND_HOST + "Backend/poeate/search/";
+  let response = await fetch(url, {
+    headers: {
+      Content: content,
+    },
+  });
+  let data = await response.json();
+  return data;
+}

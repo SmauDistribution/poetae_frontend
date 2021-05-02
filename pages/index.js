@@ -2,14 +2,18 @@ import { useEffect, useState } from "react";
 import Profile from "../components/Profile";
 import SearchIcon from "../icons/Search";
 import Title from "../icons/Title";
-import { GetProfiles } from "./api/profiles";
+import { GetProfiles, Search } from "./api/profiles";
+
+//TODO: QUANDO CERCHI E VIENE FUORI UN PROFILO SENZA IMMAGINE SI VEDE MALE...SISTEMA
 
 export default function Home() {
   const [profiles, setProfiles] = useState([]);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("ok");
+    let content = e.target.content.value;
+    if (content !== "") Search(content).then((res) => setProfiles(res));
+    else GetProfiles().then((res) => setProfiles(res));
   };
 
   useEffect(() => {
@@ -35,6 +39,7 @@ export default function Home() {
         <form className="flex flex-row gap-2" onSubmit={onSubmit}>
           <input
             className="bg-white rounded-full p-2 font-semibold w-lg outline-none px-4 text-black"
+            name="content"
             type="search"
             placeholder="Cerca un poeta"
           />
