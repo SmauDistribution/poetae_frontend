@@ -16,8 +16,8 @@ export default function Home() {
     GetProfiles().then((res) => setProfiles(res));
   }, []);
 
-  let Profiles = Object.values(profiles).map((x) => {
-    return <Profile path={x.Immagine} />;
+  let Profiles = Object.values(profiles).map((item) => {
+    return <Profile key={item.Id} id={item.Id} path={item.Immagine} />;
   });
 
   return (
@@ -34,7 +34,7 @@ export default function Home() {
         </i>
         <form className="flex flex-row gap-2" onSubmit={onSubmit}>
           <input
-            className="bg-white rounded-full p-2 font-semibold w-lg outline-none px-4"
+            className="bg-white rounded-full p-2 font-semibold w-lg outline-none px-4 text-black"
             type="search"
             placeholder="Cerca un poeta"
           />

@@ -6,3 +6,14 @@ export async function GetProfiles() {
   let data = await response.json();
   return data;
 }
+
+export async function GetProfile(id) {
+  let url = BACKEND_HOST + "Backend/poeate/profile/";
+  let response = await fetch(url, {
+    headers: {
+      id: id,
+    },
+  });
+  let data = await response.json();
+  return data;
+}
