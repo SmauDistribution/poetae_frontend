@@ -23,7 +23,7 @@ const BornData = ({ profile }) => {
     <div className="mt-3 text-center">
       {profile.Nascita !== undefined && profile.Nascita !== null && (
         <span>
-          Nato il {nascita.getDay()} {getMonth(nascita.getMonth())}{" "}
+          Nato il {nascita.getDate()} {getMonth(nascita.getMonth())}{" "}
           {nascita.getFullYear()}
         </span>
       )}
@@ -33,7 +33,7 @@ const BornData = ({ profile }) => {
       <br />
       {profile.Morte !== undefined && profile.Morte !== null && (
         <span>
-          Morto il {morte.getDay()} {getMonth(morte.getMonth())}{" "}
+          Morto il {morte.getDate()} {getMonth(morte.getMonth())}{" "}
           {morte.getFullYear()}
         </span>
       )}
