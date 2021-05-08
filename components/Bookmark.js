@@ -5,17 +5,24 @@ import {
   RemoveBookmark,
 } from "../pages/api/bookmarks";
 import BookmarkIcon from "../icons/Bookmark";
+import AccountForm from "./Account";
+import { GetToken } from "../pages/api/account";
 
 const Bookmark = ({ poem }) => {
   const [saved, setSaved] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const onAction = () => {
-    if (saved) {
-      RemoveBookmark(poem.Id);
-      setSaved(false);
+    if (GetToken() === null) {
+      setVisible(true);
     } else {
-      AddBookmark(poem.Id);
-      setSaved(true);
+      if (saved) {
+        RemoveBookmark(poem.Id);
+        setSaved(false);
+      } else {
+        AddBookmark(poem.Id);
+        setSaved(true);
+      }
     }
   };
 
@@ -32,9 +39,16 @@ const Bookmark = ({ poem }) => {
   }, [poem]);
 
   return (
-    <span className="ml-auto cursor-pointer" onClick={onAction}>
-      <BookmarkIcon fill={saved === true ? "#EF4444" : "gray"} />
-    </span>
+    <>
+      <AccountForm
+        visible={visible}
+        setVisible={setVisible}
+        message="Bisogna avere un account per salvare questo testo nei segnalibri."
+      />
+      <span className="ml-auto cursor-pointer" onClick={onAction}>
+        <BookmarkIcon fill={saved === true ? "#EF4444" : "gray"} />
+      </span>
+    </>
   );
 };
 

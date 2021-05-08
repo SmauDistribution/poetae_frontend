@@ -26,3 +26,52 @@ body {
   background-color: gray;
   opacity: 0.5;
 }
+
+.poetae-form {
+  @apply bg-gray-100 text-black rounded-lg w-96;
+}
+
+.poetae-form .poetae-header {
+  @apply bg-red-600 flex flex-row items-center p-3 rounded-t-lg font-sans;
+}
+
+.poetae-form .poetae-header h1 {
+  @apply text-white text-2xl w-full text-center;
+}
+
+.poetae-form .poetae-header span {
+  @apply text-white cursor-pointer ml-auto font-mono font-bold mr-2 hover:text-red-300;
+}
+
+.poetae-form .poetae-input {
+  @apply flex flex-col gap-2;
+}
+
+.poetae-form .poetae-input label {
+  @apply font-semibold;
+}
+
+.poetae-form .poetae-input input[type="text"],
+input[type="password"] {
+  @apply p-1 pl-3 outline-none border border-custom-gray rounded-md shadow-sm focus:border-red-300;
+}
+
+.poetae-form .poetae-bottom {
+  @apply mt-4 flex flex-row justify-between;
+}
+
+.poetae-form .poetae-bottom div {
+  @apply flex flex-row gap-1 items-center;
+}
+
+.poetae-form .poetae-bottom input[type="submit"] {
+  @apply text-red-400 underline cursor-pointer hover:text-red-700;
+}
+
+.poetae-alert {
+  @apply bg-red-50 p-2 border border-red-400 rounded-md;
+}
+
+.poetae-alert p {
+  @apply text-red-400 font-medium;
+}
