@@ -1,6 +1,5 @@
-import { Link } from "next/link";
 import { useState } from "react";
-import { login } from "../pages/api/account";
+import { login, register } from "../pages/api/account";
 
 export const AccountForm = ({ message, visible, setVisible }) => {
   const [msg, setMessage] = useState(message);
@@ -8,11 +7,7 @@ export const AccountForm = ({ message, visible, setVisible }) => {
     setVisible(false);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    let user = e.target.user.value;
-    let pass = e.target.pass.value;
-
+  const account_login = (user, pass) => {
     login(user, pass)
       .then((res) => {
         sessionStorage.setItem("token", res["Token"]);
@@ -24,6 +19,29 @@ export const AccountForm = ({ message, visible, setVisible }) => {
           "Non è stato possibile autenticarti! Controlla di aver inserito le credenziali giuste oppure se non hai un account creane uno."
         );
       });
+  };
+
+  const account_register = (user, pass) => {
+    register(user, pass)
+      .then(() => {
+        account_login(user, pass);
+      })
+      .catch((err) => {
+        console.error(err);
+        setMessage("Non è stato possibile registrarsi!");
+      });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    let user = e.target.user.value;
+    let pass = e.target.pass.value;
+
+    if (e.target.check.checked) {
+      account_register(user, pass);
+    } else {
+      account_login(user, pass);
+    }
   };
 
   return (
