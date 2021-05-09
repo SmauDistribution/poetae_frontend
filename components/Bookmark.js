@@ -27,15 +27,17 @@ const Bookmark = ({ poem }) => {
   };
 
   useEffect(() => {
-    GetBookmarks().then((res) => {
-      Object.keys(res).map((item) => {
-        if (poem.Id !== undefined) {
-          if (item === poem.Id.toString()) {
-            setSaved(true);
+    GetBookmarks()
+      .then((res) => {
+        Object.keys(res).map((item) => {
+          if (poem.Id !== undefined) {
+            if (item === poem.Id.toString()) {
+              setSaved(true);
+            }
           }
-        }
-      });
-    });
+        });
+      })
+      .catch((err) => {});
   }, [poem]);
 
   return (
