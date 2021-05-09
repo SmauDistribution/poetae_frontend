@@ -75,3 +75,12 @@ input[type="password"] {
 .poetae-alert p {
   @apply text-red-400 font-medium;
 }
+
+.poeate-btn {
+  @apply bg-red-600 p-2 rounded-full text-center transition-colors hover:bg-red-700 focus:outline-none;
+}
+
+.poeate-link {
+  @apply text-red-400 font-serif underline cursor-pointer hover:text-red-500
+}
+

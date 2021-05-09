@@ -43,7 +43,7 @@ export default function Home() {
             type="search"
             placeholder="Cerca un poeta"
           />
-          <button className="bg-red-600 p-2 rounded-full text-center outline-none transition-colors hover:bg-red-700 focus:outline-none">
+          <button className="poeate-btn">
             <SearchIcon isStatic={true} />
           </button>
         </form>

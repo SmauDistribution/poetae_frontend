@@ -32775,6 +32775,49 @@ body {
   color: rgba(248, 113, 113, var(--tw-text-opacity));
 }
 
+.poeate-btn {
+  --tw-bg-opacity: 1;
+  background-color: rgba(220, 38, 38, var(--tw-bg-opacity));
+}
+
+.poeate-btn:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
+}
+
+.poeate-btn {
+  border-radius: 9999px;
+}
+
+.poeate-btn:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.poeate-btn {
+  padding: 0.5rem;
+  text-align: center;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.poeate-link {
+  cursor: pointer;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --tw-text-opacity: 1;
+  color: rgba(248, 113, 113, var(--tw-text-opacity))
+}
+
+.poeate-link:hover {
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.poeate-link {
+  text-decoration: underline;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -192234,3 +192277,4 @@ body {
     --tw-backdrop-sepia: sepia(100%);
   }
 }
+

@@ -2,7 +2,7 @@ import { BACKEND_HOST } from "./request";
 
 export function GetToken() {
   let token = undefined;
-  if (typeof window !== "undefined") token = sessionStorage.getItem("username");
+  if (typeof window !== "undefined") token = sessionStorage.getItem("token");
 
   if (token !== undefined && token !== null) return token;
   else return null;
@@ -35,6 +35,7 @@ export async function login(username, password) {
 export async function auth() {
   let token = GetToken();
   let url = BACKEND_HOST + "Backend/poeate/auth/";
+
   let resp = await fetch(url, {
     headers: {
       Token: token,
@@ -43,4 +44,9 @@ export async function auth() {
 
   let data = resp.json();
   return data;
+}
+
+export function logout() {
+  sessionStorage.removeItem("token");
+  sessionStorage.removeItem("username");
 }
