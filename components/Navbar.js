@@ -5,6 +5,8 @@ import SearchIcon from "../icons/Search";
 import TimelineIcon from "../icons/Timeline";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import UserIcon from "./User";
+import { GetToken } from "../pages/api/account";
 
 function Navbar() {
   const router = useRouter();
@@ -55,6 +57,15 @@ function Navbar() {
               </a>
             </Link>
           </li>
+          {GetToken() !== null && (
+            <li>
+              <Link href="/account">
+                <a>
+                  <UserIcon />
+                </a>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

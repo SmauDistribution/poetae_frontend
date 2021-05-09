@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { login, register } from "../pages/api/account";
+import { useRouter } from "next/router";
 
 export const AccountForm = ({ message, visible, setVisible }) => {
+  const router = useRouter();
   const [msg, setMessage] = useState(message);
   const onClose = (e) => {
     setVisible(false);
@@ -11,7 +13,10 @@ export const AccountForm = ({ message, visible, setVisible }) => {
     login(user, pass)
       .then((res) => {
         sessionStorage.setItem("token", res["Token"]);
-        setVisible(false);
+        sessionStorage.setItem("username", res["Username"]);
+        router.push({
+          pathname: "/",
+        });
       })
       .catch((err) => {
         console.error(err);
