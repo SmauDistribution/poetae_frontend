@@ -33,7 +33,15 @@ const Timeline = () => {
     lines = sortedYears.map((item, index) => {
       //Ottengo l' immagine di tutti i profili nati nell' anno specificato
       let profiles = Object.values(item.Profiles).map((item) => {
-        return <Profile key={item.Id} id={item.Id} path={item.Immagine} />;
+        return (
+          <Profile
+            key={item.Id}
+            id={item.Id}
+            name={item.Nome}
+            surname={item.Cognome}
+            path={item.Immagine}
+          />
+        );
       });
 
       return (
