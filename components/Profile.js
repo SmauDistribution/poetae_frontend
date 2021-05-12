@@ -11,8 +11,6 @@ function Profile({ id, name, surname, path }) {
     });
   };
 
-  console.log(path);
-
   return (
     <button
       onClick={openProfile}
