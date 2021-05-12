@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Profile from "../components/Profile";
+import Year from "../components/Year";
 import { GetYears } from "./api/dateline";
 
 const SPACING = 150;
@@ -16,46 +17,33 @@ const getY = (index) => {
   return index * SPACING + 130;
 };
 
-const Timeline = () => {
-  const [years, setYears] = useState([]);
+const getProfiles = (data) => {
+  let profiles = Object.values(data).map((item) => {
+    return (
+      <Profile
+        key={item.Id}
+        id={item.Id}
+        name={item.Nome}
+        surname={item.Cognome}
+        path={item.Immagine}
+      />
+    );
+  });
 
-  useEffect(() => {
-    GetYears().then((res) => {
-      setYears(res);
-    });
-  }, []);
+  return profiles;
+};
 
+const getLines = (years) => {
   let sortedYears = Object.values(years).sort((a, b) => a.Anno - b.Anno);
 
-  //TODO: Fai più piccoli i profile
   let lines = [];
   if (years !== undefined && years !== null && years !== [])
     lines = sortedYears.map((item, index) => {
-      //Ottengo l' immagine di tutti i profili nati nell' anno specificato
-      let profiles = Object.values(item.Profiles).map((item) => {
-        return (
-          <Profile
-            key={item.Id}
-            id={item.Id}
-            name={item.Nome}
-            surname={item.Cognome}
-            path={item.Immagine}
-          />
-        );
-      });
+      let profiles = getProfiles(item.Profiles);
 
       return (
         <div key={item.Id}>
-          {/* Rappresento l' anno */}
-          <div
-            style={{
-              top: getY(index),
-              left: 96,
-            }}
-            className="absolute bg-red-500 pl-8 pr-8 p-2 rounded-br-xl rounded-tl-xl z-10 border-4 border-white"
-          >
-            <span className="text-2xl">{item.Anno}</span>
-          </div>
+          <Year index={index} year={item.Anno} top={getY(index)} />
 
           {/* Link line */}
           <div
@@ -82,6 +70,20 @@ const Timeline = () => {
         </div>
       );
     });
+
+  return lines;
+};
+
+const Timeline = () => {
+  const [years, setYears] = useState([]);
+
+  useEffect(() => {
+    GetYears().then((res) => {
+      setYears(res);
+    });
+  }, []);
+
+  let lines = getLines(years);
 
   return (
     <div>
