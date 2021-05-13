@@ -4,8 +4,6 @@ import SearchIcon from "../icons/Search";
 import Title from "../icons/Title";
 import { GetProfiles, Search } from "./api/profiles";
 
-//TODO: QUANDO CERCHI E VIENE FUORI UN PROFILO SENZA IMMAGINE SI VEDE MALE...SISTEMA
-
 export default function Home() {
   const [profiles, setProfiles] = useState([]);
 
