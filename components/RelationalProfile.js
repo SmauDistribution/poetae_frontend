@@ -13,7 +13,7 @@ const getSubprofiles = (profile) => {
           name={item.Nome}
           surname={item.Cognome}
           path={item.Immagine}
-          isSmall={true}
+          size={0}
         />
       </div>
     );
