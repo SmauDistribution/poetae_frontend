@@ -21,3 +21,21 @@ export async function GetPoemBy(id) {
   let data = await response.json();
   return data;
 }
+
+export async function GetPoems() {
+  let url = BACKEND_HOST + "Backend/poeate/poems/all/";
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
+
+export async function FindPoem(content) {
+  let url = BACKEND_HOST + "Backend/poeate/poems/find/";
+  let response = await fetch(url, {
+    headers: {
+      Content: content,
+    },
+  });
+  let data = await response.json();
+  return data;
+}

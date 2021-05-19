@@ -1,8 +1,8 @@
-const Title = () => {
+const Title = ({ size = 145 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="145px"
+      height={size}
       viewBox="0 0 368 130"
       fill="white"
     >

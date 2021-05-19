@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Profile from "../components/Profile";
+import SearchForm from "../components/SearchForm";
 import SearchIcon from "../icons/Search";
 import Title from "../icons/Title";
 import { GetProfiles, Search } from "./api/profiles";
@@ -34,17 +35,7 @@ export default function Home() {
             Conosci i tuoi poeti
           </small>
         </i>
-        <form className="flex flex-row gap-2" onSubmit={onSubmit}>
-          <input
-            className="bg-white rounded-full p-2 font-semibold w-lg outline-none px-4 text-black"
-            name="content"
-            type="search"
-            placeholder="Cerca un poeta"
-          />
-          <button className="poeate-btn">
-            <SearchIcon isStatic={true} />
-          </button>
-        </form>
+        <SearchForm onSubmit={onSubmit} placeholder={"Cerca un poeta"} />
       </div>
 
       <div className="absolute bottom-0 p-8 w-full flex flex-row gap-8 overflow-hidden overflow-x-scroll elegant-scrollbar">
