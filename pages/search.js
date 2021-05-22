@@ -3,7 +3,7 @@ import Loading from "../components/Loading";
 import Poems from "../components/Poems";
 import SearchForm from "../components/SearchForm";
 import Title from "../icons/Title";
-import { FindPoem, GetPoems } from "./api/poems";
+import { FindPoem, GetPoems, Translate } from "./api/poems";
 
 const Search = () => {
   const [poems, setPoems] = useState();
@@ -28,6 +28,17 @@ const Search = () => {
     else getPoems();
   };
 
+  const onLoad = (e) => {
+    e.preventDefault();
+    let file = e.target.files[0];
+    if (file !== undefined) {
+      Translate(file).then((res) => {
+        findPoem(res["Content"]);
+        console.log(res["Content"]);
+      });
+    }
+  };
+
   useEffect(() => {
     getPoems();
   }, []);
@@ -45,13 +56,26 @@ const Search = () => {
         </div>
         <div className="mt-4 flex flex-col text-center gap-2">
           <span>Oppure</span>
-          <button className="poeate-link focus:outline-none">
-            Carica un immagine
-          </button>
+          <input
+            onChange={onLoad}
+            name="File"
+            className="poeate-file-input"
+            type="file"
+          />
         </div>
         <div className="w-full h-full">
           {poems !== undefined ? (
-            <Poems poems={poems} />
+            [
+              poems.length !== 0 ? (
+                <Poems poems={poems} />
+              ) : (
+                <div className="mt-28">
+                  <center>
+                    <h1>Nessun risultato</h1>
+                  </center>
+                </div>
+              ),
+            ]
           ) : (
             <div className="mt-28">
               <Loading />

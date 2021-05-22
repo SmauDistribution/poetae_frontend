@@ -32806,7 +32806,7 @@ body {
   cursor: pointer;
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --tw-text-opacity: 1;
-  color: rgba(248, 113, 113, var(--tw-text-opacity))
+  color: rgba(248, 113, 113, var(--tw-text-opacity));
 }
 
 .poeate-link:hover {
@@ -32816,6 +32816,37 @@ body {
 
 .poeate-link {
   text-decoration: underline;
+}
+
+.poeate-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.poeate-file-input {
+  color: transparent;
+  width: 9rem;
+}
+
+.poeate-file-input::before {
+  content: "Carica un immagine";
+  cursor: pointer;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --tw-text-opacity: 1;
+  color: rgba(248, 113, 113, var(--tw-text-opacity));
+}
+
+.poeate-file-input::before:hover {
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
+}
+
+.poeate-file-input::before {
+  text-decoration: underline;
+}
+
+.poeate-file-input:hover::before {
+  --tw-text-opacity: 1;
+  color: rgba(239, 68, 68, var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {
@@ -192277,4 +192308,3 @@ body {
     --tw-backdrop-sepia: sepia(100%);
   }
 }
-

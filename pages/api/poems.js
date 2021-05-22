@@ -39,3 +39,15 @@ export async function FindPoem(content) {
   let data = await response.json();
   return data;
 }
+
+export async function Translate(file) {
+  const formData = new FormData();
+  formData.append("File", file);
+  let url = "http://127.0.0.1:5000/translate";
+  let response = await fetch(url, {
+    method: "POST",
+    body: formData,
+  });
+  let data = await response.json();
+  return data;
+}

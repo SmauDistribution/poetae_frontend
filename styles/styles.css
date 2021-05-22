@@ -81,6 +81,23 @@ input[type="password"] {
 }
 
 .poeate-link {
-  @apply text-red-400 font-serif underline cursor-pointer hover:text-red-500
+  @apply text-red-400 font-serif underline cursor-pointer hover:text-red-500;
 }
 
+.poeate-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.poeate-file-input {
+  color: transparent;
+  @apply w-36;
+}
+
+.poeate-file-input::before {
+  content: "Carica un immagine";
+  @apply poeate-link;
+}
+
+.poeate-file-input:hover::before {
+  @apply text-red-500;
+}

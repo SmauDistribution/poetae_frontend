@@ -11,6 +11,7 @@ const SearchForm = ({ placeholder = "", onSubmit, dark = false }) => {
           (dark ? dark_classes : white_classes) +
           " rounded-full p-2 pl-4 font-semibold w-lg outline-none px-"
         }
+        id="searchContent"
         name="content"
         type="search"
         placeholder={placeholder}
