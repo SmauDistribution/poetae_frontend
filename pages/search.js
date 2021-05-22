@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import Poems from "../components/Poems";
+import PoemsWithCheck from "../components/PoemsWithCheck";
 import SearchForm from "../components/SearchForm";
 import Title from "../icons/Title";
 import { FindPoem, GetPoems, Translate } from "./api/poems";
@@ -65,17 +66,7 @@ const Search = () => {
         </div>
         <div className="w-full h-full">
           {poems !== undefined ? (
-            [
-              poems.length !== 0 ? (
-                <Poems poems={poems} />
-              ) : (
-                <div className="mt-28">
-                  <center>
-                    <h1>Nessun risultato</h1>
-                  </center>
-                </div>
-              ),
-            ]
+            <PoemsWithCheck poems={poems} />
           ) : (
             <div className="mt-28">
               <Loading />

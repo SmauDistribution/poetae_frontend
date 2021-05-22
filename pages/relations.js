@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Profile from "../components/Profile";
 import RelationalProfile from "../components/RelationalProfile";
 import { GetRelations } from "./api/relations";
 
@@ -16,9 +15,9 @@ const Relations = () => {
 
   let Profiles = [];
   if (profiles !== undefined) {
-    Profiles = Object.values(profiles).map((item) => {
+    Profiles = Object.values(profiles).map((item, index) => {
       return (
-        <div className="z-10">
+        <div key={index} className="z-10">
           <RelationalProfile profile={item} />
         </div>
       );

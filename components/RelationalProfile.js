@@ -5,9 +5,9 @@ const getY = (count) => {
 };
 
 const getSubprofiles = (profile) => {
-  let subProfiles = Object.values(profile.Relazioni).map((item) => {
+  let subProfiles = Object.values(profile.Relazioni).map((item, index) => {
     return (
-      <div className="z-10">
+      <div key={index} className="z-10">
         <Profile
           id={item.Id}
           name={item.Nome}

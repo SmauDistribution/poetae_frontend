@@ -5,6 +5,7 @@ import { GetBookmarks } from "./api/bookmarks";
 import Poems from "../components/Poems";
 import { useRouter } from "next/router";
 import EmptyArea from "../components/EmptyArea";
+import PoemsOrEmpty from "../components/PoemsOrEmpty";
 
 const Account = () => {
   const router = useRouter();
@@ -28,8 +29,6 @@ const Account = () => {
     GetBookmarks().then((res) => setPoems(res));
   }, [poems]);
 
-  let poems_len = Object.keys(poems).length;
-
   return (
     <div className="under-nav">
       {user.Username ? (
@@ -48,19 +47,7 @@ const Account = () => {
               Esci
             </button>
           </div>
-          <div>
-            {poems ? (
-              [
-                poems_len > 0 ? (
-                  <Poems poems={poems} />
-                ) : (
-                  <EmptyArea message="Non ha salvato nessun segnalibro" />
-                ),
-              ]
-            ) : (
-              <Loading />
-            )}
-          </div>
+          <div>{poems ? <PoemsOrEmpty poems={poems} /> : <Loading />}</div>
         </div>
       ) : (
         <Loading />
