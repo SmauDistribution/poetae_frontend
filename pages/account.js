@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import { auth, logout } from "./api/account";
 import { GetBookmarks } from "./api/bookmarks";
-import Poems from "../components/Poems";
 import { useRouter } from "next/router";
-import EmptyArea from "../components/EmptyArea";
 import PoemsOrEmpty from "../components/PoemsOrEmpty";
 
 const Account = () => {

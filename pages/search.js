@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
-import Poems from "../components/Poems";
 import PoemsWithCheck from "../components/PoemsWithCheck";
 import SearchForm from "../components/SearchForm";
 import Title from "../icons/Title";

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Profile from "../components/Profile";
 import SearchForm from "../components/SearchForm";
-import SearchIcon from "../icons/Search";
 import Title from "../icons/Title";
 import { GetProfiles, Search } from "./api/profiles";
 
