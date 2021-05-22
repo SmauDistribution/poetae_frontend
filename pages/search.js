@@ -21,6 +21,7 @@ const Search = () => {
     });
   };
 
+  //Ricerca tramite testo
   const onSubmit = (e) => {
     e.preventDefault();
     let content = e.target.content.value;
@@ -29,14 +30,20 @@ const Search = () => {
     else getPoems();
   };
 
+  //Ricerca tramite immagine
   const onLoad = (e) => {
     e.preventDefault();
     let file = e.target.files[0];
     if (file !== undefined) {
-      Translate(file).then((res) => {
-        findPoem(res["Content"]);
-        console.log(res["Content"]);
-      });
+      Translate(file)
+        .then((res) => {
+          findPoem(res["Content"]);
+          console.log(res["Content"]);
+        })
+        .catch(() => {
+          setPoems([]);
+          console.error("Errore nel caricare il file!");
+        });
     }
   };
 
