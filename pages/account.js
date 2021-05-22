@@ -9,8 +9,8 @@ import PoemsOrEmpty from "../components/PoemsOrEmpty";
 
 const Account = () => {
   const router = useRouter();
-  const [user, setUser] = useState({});
-  const [poems, setPoems] = useState({});
+  const [user, setUser] = useState();
+  const [poems, setPoems] = useState();
 
   const account_logout = () => {
     logout();
@@ -23,15 +23,13 @@ const Account = () => {
     auth().then((res) => {
       setUser(res);
     });
-  }, [user]);
 
-  useEffect(() => {
     GetBookmarks().then((res) => setPoems(res));
-  }, [poems]);
+  }, []);
 
   return (
     <div className="under-nav">
-      {user.Username ? (
+      {user ? (
         <div className="p-16">
           <div className="flex flex-col text-center">
             <h1 className="font-bold text-5xl mb-1">
