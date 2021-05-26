@@ -13,7 +13,6 @@ const PoemCard = ({ item }) => {
 
   return (
     <div
-      key={item.Id}
       className="w-80 h-60 bg-custom-darkgray p-8 rounded-xl flex flex-col gap-3 cursor-pointer transition-colors hover:bg-custom-darkgray-900"
       onClick={() => openPoem(item.Id)}
     >

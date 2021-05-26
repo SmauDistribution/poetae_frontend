@@ -7,7 +7,7 @@ const Poems = ({ poems }) => {
   let Poems = [];
   if (poems !== undefined && poems != null) {
     Poems = Object.values(poems).map((item) => {
-      return <PoemCard item={item} />;
+      return <PoemCard key={item.Id} item={item} />;
     });
   }
 
