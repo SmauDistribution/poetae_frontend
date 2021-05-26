@@ -19,7 +19,15 @@ export default function Home() {
   }, []);
 
   let Profiles = Object.values(profiles).map((item) => {
-    return <Profile key={item.Id} id={item.Id} path={item.Immagine} />;
+    return (
+      <Profile
+        key={item.Id}
+        id={item.Id}
+        name={item.Nome}
+        surname={item.Cognome}
+        path={item.Immagine}
+      />
+    );
   });
 
   return (
