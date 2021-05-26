@@ -24,7 +24,7 @@ const TextEditor = ({ poem }) => {
           className="flex flex-row gap-24 pl-4 bg-opacity-5 hover:bg-red-200 hover:bg-opacity-5"
         >
           <span className="text-red-500 font-mono w-10">{index + 1}</span>
-          <span>{line}</span>
+          <span className="whitespace-nowrap">{line}</span>
         </div>
       );
     });
@@ -37,7 +37,7 @@ const TextEditor = ({ poem }) => {
         <span>{getChars(poem.Contenuto)} caratteri</span>
         <Bookmark poem={poem} />
       </div>
-      <div className="h-lg overflow-hidden overflow-y-scroll elegant-scrollbar cursor-default">
+      <div className="h-lg overflow-scroll elegant-scrollbar cursor-default">
         {lines}
       </div>
     </div>
