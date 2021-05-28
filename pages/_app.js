@@ -1,8 +1,11 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
 import "../styles/public/styles.css";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -18,7 +21,7 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
+      {router.pathname !== "/error" && <Navbar />}
       <main>
         <Component {...pageProps} />
       </main>

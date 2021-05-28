@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Profile from "../components/Profile";
 import SearchForm from "../components/SearchForm";
@@ -6,6 +7,7 @@ import { GetProfiles, Search } from "./api/profiles";
 
 export default function Home() {
   const [profiles, setProfiles] = useState([]);
+  const router = useRouter();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -15,7 +17,14 @@ export default function Home() {
   };
 
   useEffect(() => {
-    GetProfiles().then((res) => setProfiles(res));
+    GetProfiles()
+      .then((res) => setProfiles(res))
+      .catch((err) => {
+        console.log(err);
+        router.push({
+          pathname: "/error",
+        });
+      });
   }, []);
 
   let Profiles = Object.values(profiles).map((item) => {

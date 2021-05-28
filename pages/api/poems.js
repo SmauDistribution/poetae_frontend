@@ -1,7 +1,7 @@
 import { BACKEND_HOST } from "./request";
 
 export async function GetPoem(profile) {
-  let url = BACKEND_HOST + "Backend/poeate/poems/";
+  let url = BACKEND_HOST + "poems/";
   let response = await fetch(url, {
     headers: {
       Profile: profile,
@@ -12,7 +12,7 @@ export async function GetPoem(profile) {
 }
 
 export async function GetPoemBy(id) {
-  let url = BACKEND_HOST + "Backend/poeate/poems/";
+  let url = BACKEND_HOST + "poems/";
   let response = await fetch(url, {
     headers: {
       id: id,
@@ -23,14 +23,14 @@ export async function GetPoemBy(id) {
 }
 
 export async function GetPoems() {
-  let url = BACKEND_HOST + "Backend/poeate/poems/all/";
+  let url = BACKEND_HOST + "poems/all/";
   let response = await fetch(url);
   let data = await response.json();
   return data;
 }
 
 export async function FindPoem(content) {
-  let url = BACKEND_HOST + "Backend/poeate/poems/find/";
+  let url = BACKEND_HOST + "poems/find/";
   let response = await fetch(url, {
     headers: {
       Content: content,

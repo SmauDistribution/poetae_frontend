@@ -2,7 +2,7 @@ import { BACKEND_HOST } from "./request";
 
 export async function GetBookmarks() {
   let token = sessionStorage.getItem("token");
-  let url = BACKEND_HOST + "Backend/poeate/bookmarks/";
+  let url = BACKEND_HOST + "bookmarks/";
   let response = await fetch(url, {
     headers: {
       Token: token,
@@ -14,7 +14,7 @@ export async function GetBookmarks() {
 
 export async function AddBookmark(id) {
   let token = sessionStorage.getItem("token");
-  let url = BACKEND_HOST + "Backend/poeate/bookmarks/set/";
+  let url = BACKEND_HOST + "bookmarks/set/";
   let response = await fetch(url, {
     headers: {
       Poem: id,
@@ -25,7 +25,7 @@ export async function AddBookmark(id) {
 
 export async function RemoveBookmark(id) {
   let token = sessionStorage.getItem("token");
-  let url = BACKEND_HOST + "Backend/poeate/bookmarks/remove/";
+  let url = BACKEND_HOST + "bookmarks/remove/";
   let response = await fetch(url, {
     headers: {
       Poem: id,

@@ -9,7 +9,7 @@ export function GetToken() {
 }
 
 export async function register(username, password) {
-  let url = BACKEND_HOST + "Backend/poeate/register/";
+  let url = BACKEND_HOST + "register/";
   await fetch(url, {
     method: "POST",
     headers: {
@@ -20,7 +20,7 @@ export async function register(username, password) {
 }
 
 export async function login(username, password) {
-  let url = BACKEND_HOST + "Backend/poeate/login/";
+  let url = BACKEND_HOST + "login/";
   let resp = await fetch(url, {
     headers: {
       Username: username,
@@ -34,7 +34,7 @@ export async function login(username, password) {
 
 export async function auth() {
   let token = GetToken();
-  let url = BACKEND_HOST + "Backend/poeate/auth/";
+  let url = BACKEND_HOST + "auth/";
 
   let resp = await fetch(url, {
     headers: {
