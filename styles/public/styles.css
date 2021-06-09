@@ -32849,6 +32849,12 @@ body {
   color: rgba(239, 68, 68, var(--tw-text-opacity));
 }
 
+.fullscreen:-webkit-full-screen {
+  width: auto !important;
+  height: auto !important;
+  margin: auto !important;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

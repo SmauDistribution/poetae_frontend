@@ -21,7 +21,9 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {router.pathname !== "/error" && <Navbar />}
+      {router.pathname !== "/error" && router.pathname !== "/about" && (
+        <Navbar />
+      )}
       <main>
         <Component {...pageProps} />
       </main>

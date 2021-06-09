@@ -101,3 +101,9 @@ input[type="password"] {
 .poeate-file-input:hover::before {
   @apply text-red-500;
 }
+
+.fullscreen:-webkit-full-screen {
+  width: auto !important;
+  height: auto !important;
+  margin: auto !important;
+}
